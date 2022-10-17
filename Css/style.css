@@ -1,0 +1,83 @@
+ion-icon {
+    color: white;
+    font-size: 62px;
+}
+.navbar{
+    margin-bottom: 1%;
+    padding: 0%;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(13,83,193,1) 100%, rgba(0,212,255,1) 100%);
+}
+
+.blanco{
+    color: white;
+    font-size: 120%;
+}
+.blanco:hover{
+    color: grey;
+}
+.btn-primary{
+    background: rgb(0, 7, 144);
+    color: white;
+}
+.navbar-toggler{
+    border-color: white;
+    color: white;
+}
+.tablaCategory{
+    margin: auto;
+    width: 90%;
+}
+.tablaGame{
+    margin: auto;
+    width: 90%;
+}
+
+.paginador{
+    width: 100%;
+    margin-left: 40%;
+    margin-top: 2%;
+}
+
+.contenedorsearch{
+    margin-left: 40%;
+}
+
+
+
+.modal-container{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.863);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;  
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.863);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;  
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+} 
+/*
+.modal{
+    background-color: rgba(255, 46, 255, 0.767);
+    width: 50%;
+}  */
