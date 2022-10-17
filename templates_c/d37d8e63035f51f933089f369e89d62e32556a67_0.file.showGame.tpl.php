@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-16 23:46:16
+/* Smarty version 4.2.1, created on 2022-10-18 00:18:56
   from 'C:\xampp\htdocs\WEB2_Tp\Template\game\showGame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634c7ba8b73663_59328250',
+  'unifunc' => 'content_634dd4d0515806_50879886',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd37d8e63035f51f933089f369e89d62e32556a67' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\game\\showGame.tpl',
-      1 => 1665956774,
+      1 => 1666045134,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634c7ba8b73663_59328250 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634dd4d0515806_50879886 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -58,7 +58,7 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
     </div>
 </nav>
 <div class="container-fluid">
-    <form class="row g-3" action="createGame" method="post">
+    <form class="row g-3" action="createGame" method="post" enctype="multipart/form-data">
         <div class="col-md-4">
             <label for="validationCustom01" class="form-label">Juego</label>
             <input type="text" class="form-control" name="name" id="name" placeholder="Juego" required>
@@ -77,6 +77,10 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
             <option value="4">Multiplayer online battle arena</option>
             </select>
         </div>
+        <div>
+            <label>Insertar una imagen(OPCIONAL)</label>
+            <input type="file" name="img" id="imageToUpload">
+        </div>
         <div class="col-12">
             <button class="btn btn-primary" type="submit">Submit form</button>
         </div>
@@ -94,6 +98,7 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col"></th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Id_category_fk</th>
@@ -113,6 +118,12 @@ $_smarty_tpl->tpl_vars['juego']->do_else = false;
             <tr>
                 <th scope="row"><?php echo $_smarty_tpl->tpl_vars['juego']->value->id;?>
 </th>
+                <?php if ((isset($_smarty_tpl->tpl_vars['juego']->value->imagen))) {?>
+                    <td><img class="imagen" src="<?php echo $_smarty_tpl->tpl_vars['juego']->value->imagen;?>
+"></td>
+                <?php } else { ?>
+                    <td></td>
+                <?php }?>
                 <td><a href="viewGame/<?php echo $_smarty_tpl->tpl_vars['juego']->value->id;?>
 "><?php echo $_smarty_tpl->tpl_vars['juego']->value->name;?>
 </a></td>

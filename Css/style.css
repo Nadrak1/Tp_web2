@@ -43,7 +43,10 @@ ion-icon {
     margin-left: 40%;
 }
 
-
+img.imagen{
+    width: 9rem;
+    height: 5rem;
+}
 
 .modal-container{
     display: flex;

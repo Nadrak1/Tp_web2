@@ -32,7 +32,7 @@
     </div>
 </nav>
 <div class="container-fluid">
-    <form class="row g-3" action="createGame" method="post">
+    <form class="row g-3" action="createGame" method="post" enctype="multipart/form-data">
         <div class="col-md-4">
             <label for="validationCustom01" class="form-label">Juego</label>
             <input type="text" class="form-control" name="name" id="name" placeholder="Juego" required>
@@ -51,6 +51,10 @@
             <option value="4">Multiplayer online battle arena</option>
             </select>
         </div>
+        <div>
+            <label>Insertar una imagen(OPCIONAL)</label>
+            <input type="file" name="img" id="imageToUpload">
+        </div>
         <div class="col-12">
             <button class="btn btn-primary" type="submit">Submit form</button>
         </div>
@@ -68,6 +72,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col"></th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Id_category_fk</th>
@@ -81,6 +86,11 @@
     {foreach from=$game item=$juego}
             <tr>
                 <th scope="row">{$juego->id}</th>
+                {if isset($juego->imagen)}
+                    <td><img class="imagen" src="{$juego->imagen}"></td>
+                {else}
+                    <td></td>
+                {/if}
                 <td><a href="viewGame/{$juego->id}">{$juego->name}</a></td>
                 <td>$ {$juego->price}</td>
                 <td>{$juego->id_category_fk}</td>

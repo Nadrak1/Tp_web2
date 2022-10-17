@@ -25,8 +25,16 @@ class gameController{
 
     function createGame(){
         $this->helper->checkLoggedIn();
-
-        $this->model->insertGame($_POST["name"], $_POST["price"], $_POST["id_category_fk"]);
+        $name=$_POST["name"];
+        $price=$_POST["price"];
+        $id_category_fk=$_POST["id_category_fk"];
+        if( $_FILES["img"]["type"] == "image/jpg" ||
+        $_FILES["img"]["type"] == "image/jpeg" ||
+        $_FILES["img"]["type"] == "image/png"){
+            $this->model->insertGame($name,$price,$id_category_fk,$_FILES["img"]["tmp_name"]);
+        }else{
+            $this->model->insertGame($name,$price,$id_category_fk);
+        }
         $this->view->showHomeLocation();
     }
 
@@ -52,8 +60,18 @@ class gameController{
 
     function editGame(){
         $this->helper->checkLoggedIn();
-        
-        $this->model->updategameFromDB($_POST["name"], $_POST["price"], $_POST["id_category_fk"],$_POST["id"]);
+        $name=$_POST["name"];
+        $price=$_POST["price"];
+        $id_category_fk=$_POST["id_category_fk"];
+        $id=$_POST["id"];
+
+        if( $_FILES["img"]["type"] == "image/jpg" ||
+        $_FILES["img"]["type"] == "image/jpeg" ||
+        $_FILES["img"]["type"] == "image/png"){
+            $this->model->updategameFromDB($name,$price,$id_category_fk,$_FILES["img"]["tmp_name"],$id);
+        }else{
+            $this->model->updategameFromDB($name,$price,$id_category_fk,$id);
+        }
         $this->view->showHomeLocation();
     }
 

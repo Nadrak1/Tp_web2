@@ -12,10 +12,20 @@ function __construct(){
         return $game;
     }
 
-    function insertGame($name,$price,$id_category_fk){ //estos son solo nombres de variables
-        $sentencia = $this->db->prepare("INSERT INTO videogame(name,price,id_category_fk) VALUES(?,?,?)");    //lo importante es que aca duga titulo,..
+    function insertGame($name,$price,$id_category_fk,$imagen = null){ //estos son solo nombres de variables
+        $pathImg = null;
+        if($imagen){
+            $pathImg = $this->uploadImage($imagen);
+        }
+        $sentencia = $this->db->prepare("INSERT INTO videogame(name,price,id_category_fk,imagen) VALUES(?,?,?,?)");    //lo importante es que aca duga titulo,..
                                                                                                                       //PREPARO LA SENTENCIA (EL INSERT)
-        $sentencia->execute(array($name,$price,$id_category_fk)); //ejecuto la sentencia,si hay 4 valores tengo que tener en el arreglo las 4 variables 
+        $sentencia->execute(array($name,$price,$id_category_fk,$pathImg)); //ejecuto la sentencia,si hay 4 valores tengo que tener en el arreglo las 4 variables 
+    }
+
+    private function uploadImage($imagen){
+        $target = "imgs/" . uniqid() . ".jpg";
+        move_uploaded_file($imagen, $target);
+        return $target;
     }
 
     function deleteGameFromDB($id){
@@ -23,10 +33,15 @@ function __construct(){
         $sentencia->execute(array($id)); //tiene un solo parametro 
     }
 
-    function updategameFromDB($name,$price,$id_category_fk,$id){
-        $sentencia = $this->db->prepare("UPDATE videogame SET name=?,price=?,id_category_fk=? WHERE id=?");
-        $sentencia->execute(array($name,$price,$id_category_fk,$id)); 
+    function updategameFromDB($name,$price,$id_category_fk,$imagen = null,$id){
+        $pathImg = null;
+        if($imagen){
+            $pathImg = $this->uploadImage($imagen);
+        }
+        $sentencia = $this->db->prepare("UPDATE videogame SET name=?,price=?,id_category_fk=?,imagen=? WHERE id=?");
+        $sentencia->execute(array($name,$price,$id_category_fk,$pathImg,$id)); 
     }
+
 
     function getGames($id){
         $sentencia = $this->db->prepare( "select * from videogame WHERE id=?"); // peparo las tareas
