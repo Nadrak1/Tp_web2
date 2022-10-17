@@ -20,25 +20,18 @@ class authHelper{
         if ($this->checkLoggedIn()){
             $user = $this->createUser();
             return $user;
-        }else
+        }else{
             return null;
+        }
     }
 
     private function createUser(){
         session_start();
         $user = new stdClass();
         $user->email = $_SESSION['email'];
-        $user->password = $_SESSION['password'];
         $user->rol = $_SESSION['rol'];
         session_abort();
         return $user;
-    }
-
-    public function checkIsAdmin(){
-        session_start();
-        $isAdmin = ($_SESSION['rol'] == 'admin');
-        session_abort();
-        return $isAdmin;
     }
 
 

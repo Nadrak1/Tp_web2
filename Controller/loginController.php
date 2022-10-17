@@ -33,10 +33,12 @@ class loginController{
             $user = $this->model->getUsers($email);
 
             if(!isset($user->email)){
-                $this->model->insertUser($email,$password);
+                $rol = "usuario";
+                $this->model->insertUser($rol,$email,$password);
+                
                 session_start();
                 $_SESSION["email"] = $email;
-
+                $_SESSION['rol'] = $user->rol;
                 $this->view->showHomeLocation();
             }else{
                 $this->view->showRegister("Acceso denegado ya existe esa cuenta");
