@@ -70,7 +70,7 @@ class gameController{
         $_FILES["img"]["type"] == "image/png"){
             $this->model->updategameFromDB($name,$price,$id_category_fk,$_FILES["img"]["tmp_name"],$id);
         }else{
-            $this->model->updategameFromDB($name,$price,$id_category_fk,$id);
+            $this->model->updategameFromDB($name,$price,$id_category_fk,$imagen= null,$id);
         }
         $this->view->showHomeLocation();
     }

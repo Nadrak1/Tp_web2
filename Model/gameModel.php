@@ -50,10 +50,10 @@ function __construct(){
     }
 
     function gameSearch($palabra,$numero){
-        $sentencia = $this->db->prepare( "SELECT * FROM videogame WHERE name LIKE ? OR price LIKE ? "); 
+        $sentencia = $this->db->prepare( "SELECT a.*, b.genre FROM videogame a INNER JOIN category b ON a.id_category_fk = b.id WHERE name LIKE ? OR price LIKE ? "); 
         $sentencia->execute(["%${palabra}%" , "%${numero}%"]);  
         return $sentencia->fetchAll(PDO::FETCH_OBJ);  
     }
-
+    
 
 }
