@@ -75,7 +75,7 @@
                     <th scope="col"></th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Id_category_fk</th>
+                    <th scope="col">Categoria</th>
                     {if  $user->rol == "admin" }
                         <th scope="col"></th>
                         <th scope="col"></th>

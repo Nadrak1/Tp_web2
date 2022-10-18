@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-18 00:18:56
+/* Smarty version 4.2.1, created on 2022-10-18 02:08:08
   from 'C:\xampp\htdocs\WEB2_Tp\Template\game\showGame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634dd4d0515806_50879886',
+  'unifunc' => 'content_634dee68365470_95718253',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd37d8e63035f51f933089f369e89d62e32556a67' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\game\\showGame.tpl',
-      1 => 1666045134,
+      1 => 1666051601,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634dd4d0515806_50879886 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634dee68365470_95718253 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -101,7 +101,7 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
                     <th scope="col"></th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Id_category_fk</th>
+                    <th scope="col">Categoria</th>
                     <?php if ($_smarty_tpl->tpl_vars['user']->value->rol == "admin") {?>
                         <th scope="col"></th>
                         <th scope="col"></th>

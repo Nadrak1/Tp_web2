@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-16 23:37:06
+/* Smarty version 4.2.1, created on 2022-10-18 02:10:14
   from 'C:\xampp\htdocs\WEB2_Tp\Template\game\showOneGame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634c7982837532_30429290',
+  'unifunc' => 'content_634deee6acbea1_77096347',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da153807429a3dd972935ffe3c0c111db98a28dc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\game\\showOneGame.tpl',
-      1 => 1665956192,
+      1 => 1666051813,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634c7982837532_30429290 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634deee6acbea1_77096347 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <nav class="navbar navbar-expand-lg bg-dark">
@@ -56,14 +56,14 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
         </span>
     </div>
 </nav>
-<h1>nombre:<?php echo $_smarty_tpl->tpl_vars['game']->value->name;?>
+<h1>Nombre: <?php echo $_smarty_tpl->tpl_vars['game']->value->name;?>
 </h1>
-<h2>precio:<?php echo $_smarty_tpl->tpl_vars['game']->value->price;?>
-</h2>
-<h3>id_category:<?php echo $_smarty_tpl->tpl_vars['game']->value->id_category_fk;?>
-</h3>
-<h3>id:<?php echo $_smarty_tpl->tpl_vars['game']->value->id;?>
-</h3>
+<h1>Precio: <?php echo $_smarty_tpl->tpl_vars['game']->value->price;?>
+</h1>
+<h1>Nro id:<?php echo $_smarty_tpl->tpl_vars['game']->value->id;?>
+</h1>
+<h4><img class="imagen" src="<?php echo $_smarty_tpl->tpl_vars['game']->value->imagen;?>
+"></h4>
 <a href="gameHome"><button type="button" class="btn btn-primary ">Volver</button></a>
 
 <?php $_smarty_tpl->_subTemplateRender("file:Template/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

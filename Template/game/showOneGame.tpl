@@ -30,10 +30,10 @@
         </span>
     </div>
 </nav>
-<h1>nombre:{$game->name}</h1>
-<h2>precio:{$game->price}</h2>
-<h3>id_category:{$game->id_category_fk}</h3>
-<h3>id:{$game->id}</h3>
+<h1>Nombre: {$game->name}</h1>
+<h1>Precio: {$game->price}</h1>
+<h1>Nro id:{$game->id}</h1>
+<h4><img class="imagen" src="{$game->imagen}"></h4>
 <a href="gameHome"><button type="button" class="btn btn-primary ">Volver</button></a>
 
 {include file="Template/footer.tpl"}
