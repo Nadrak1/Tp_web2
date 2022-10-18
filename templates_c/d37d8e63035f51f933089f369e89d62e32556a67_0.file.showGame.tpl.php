@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-18 02:08:08
+/* Smarty version 4.2.1, created on 2022-10-18 03:50:37
   from 'C:\xampp\htdocs\WEB2_Tp\Template\game\showGame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634dee68365470_95718253',
+  'unifunc' => 'content_634e066d1d3ee5_57253314',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd37d8e63035f51f933089f369e89d62e32556a67' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\game\\showGame.tpl',
-      1 => 1666051601,
+      1 => 1666057836,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634dee68365470_95718253 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634e066d1d3ee5_57253314 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -129,7 +129,7 @@ $_smarty_tpl->tpl_vars['juego']->do_else = false;
 </a></td>
                 <td>$ <?php echo $_smarty_tpl->tpl_vars['juego']->value->price;?>
 </td>
-                <td><?php echo $_smarty_tpl->tpl_vars['juego']->value->id_category_fk;?>
+                <td><?php echo $_smarty_tpl->tpl_vars['juego']->value->genre;?>
 </td>
                 <?php if ($_smarty_tpl->tpl_vars['user']->value->rol == "admin") {?>
                     <td><a href="deleteGame/<?php echo $_smarty_tpl->tpl_vars['juego']->value->id;?>

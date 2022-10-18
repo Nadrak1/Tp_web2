@@ -6,7 +6,7 @@ function __construct(){
         $this->db = new PDO('mysql:host=localhost;'.'dbname=web2_tp;charset=utf8', 'root', '');//se conecta a la abse de datos (OJO CON dbname= poner el nombre de nuestra tabla)//
     }
     function getGame(){
-        $sentencia = $this->db->prepare( "SELECT * FROM videogame "); 
+        $sentencia = $this->db->prepare("SELECT a.*, b.genre FROM videogame a INNER JOIN category b ON a.id_category_fk = b.id;"); 
         $sentencia->execute();  
         $game = $sentencia->fetchAll(PDO::FETCH_OBJ);   
         return $game;

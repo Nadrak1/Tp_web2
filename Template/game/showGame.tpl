@@ -93,7 +93,7 @@
                 {/if}
                 <td><a href="viewGame/{$juego->id}">{$juego->name}</a></td>
                 <td>$ {$juego->price}</td>
-                <td>{$juego->id_category_fk}</td>
+                <td>{$juego->genre}</td>
                 {if  $user->rol == "admin" }
                     <td><a href="deleteGame/{$juego->id}"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
                     <td><a href="viewEditGame/{$juego->id}"><button type="button" class="btn btn-warning">Editar</button></a></td>
