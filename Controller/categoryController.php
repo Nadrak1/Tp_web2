@@ -23,9 +23,12 @@ class categoryController{
     }
 
     function createCategorys(){
-        
-        $this->model->insertCategory($_POST["genre"], $_POST["gameplay"]);
-        $this->view->showHomeLocation();
+        if(!empty($_POST["genre"]) && !empty($_POST["gameplay"])){
+            $this->model->insertCategory($_POST["genre"], $_POST["gameplay"]);
+            $this->view->showHomeLocation();
+        }else{
+            $this->view->showHomeLocation();
+        }
     }
 
     function deleteCategory($id){
@@ -37,9 +40,9 @@ class categoryController{
 
     function getCategory($id){
         $this->helper->checkLoggedIn();
-
+        $user = $this->helper->loggedUser();
         $tarea = $this->model->getCategory($id);
-        $this->view->viewCategory($tarea);
+        $this->view->viewCategory($tarea,$user);
     }
 
     function viewEditCategory($id){
@@ -48,10 +51,13 @@ class categoryController{
         $this->view->viewEditCategory($id);
     }
     function editCategory(){
-        $this->helper->checkLoggedIn();
-
-        $game = $this->model->updateCategoryFromDB($_POST['genre'],$_POST['gameplay'],$_POST['id']);
-        $this->view->showHomeLocation();
+        if(!empty($_POST["genre"]) && !empty($_POST["gameplay"] && !empty($_POST['id']))){
+            $this->helper->checkLoggedIn();
+            $game = $this->model->updateCategoryFromDB($_POST['genre'],$_POST['gameplay'],$_POST['id']);
+            $this->view->showHomeLocation();
+        }else{
+            $this->view->showHomeLocation();
+        }
     }
 
     function searchCategory(){

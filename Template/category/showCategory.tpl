@@ -14,34 +14,24 @@
                 <li class="nav-item">
                 <a class="nav-link blanco" href="categoryHome">Categories</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle blanco" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Views
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
-        <span class="navbar-text">
-            <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
-        </span>
+        {if $user->rol == "usuario" || $user->rol == "admin"}
+            <span class="navbar-text">
+                <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
+            </span>
+        {else}
+            <span class="navbar-text">
+                <a href="login"><button type="button" class="btn btn-primary ">Loguearte</button></a>
+            </span>
+        {/if}
     </div>
 </nav>
 
 <form class="row g-3" action="createCategory" method="post">
     <div class="col-md-3">  
         <label for="validationCustom04" class="form-label">Genero</label>
-        <select class="form-select" name="genre" id="genre" required>
-        <option selected disabled value="">Elegi...</option>
-        <option value="Shooter">Shooter</option>
-        <option value="Sport">Sport</option>
-        <option value="Horror">Horror</option>
-        <option value="Multiplayer online battle arena">Multiplayer online battle arena</option>
-        </select>
+        <input type="text" class="form-control"name="genre" id="genre" placeholder="Ingresa un genero" required>
     </div>
     <div class="col-md-3">
         <label for="validationCustom04" class="form-label">Plataforma de Jugabilidad</label>

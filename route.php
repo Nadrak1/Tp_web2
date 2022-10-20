@@ -8,7 +8,7 @@ require_once "./Controller/loginController.php";
     if(!empty($_GET['action'])){
         $action = $_GET['action'];
     }else{
-        $action= 'login';
+        $action= 'gameHome';
     }
 
     $params = explode("/", $action);

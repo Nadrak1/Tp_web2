@@ -8,9 +8,10 @@ class gameView{
         $this->smarty = new Smarty();
     }
 
-    function showGame($game,$user){
+    function showGame($game,$user,$genre){
         $this->smarty->assign('game',$game);
         $this->smarty->assign('user', $user);
+        $this->smarty->assign('genre', $genre);
         $this->smarty->display('./Template/game/showGame.tpl');
     }
 
@@ -18,8 +19,9 @@ class gameView{
         header("Location:".BASE_URL."gameHome");
     }
 
-    function viewGame($game){
+    function viewGame($game,$user){
         $this->smarty->assign('game',$game);
+        $this->smarty->assign('user',$user);
         $this->smarty->display('./Template/game/showOneGame.tpl');
     }
 

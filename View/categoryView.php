@@ -18,8 +18,9 @@ class categoryView{
         header("Location:".BASE_URL."categoryHome");
     }
 
-    function viewCategory($category){
+    function viewCategory($category,$user){
         $this->smarty->assign("category",$category);
+        $this->smarty->assign('user', $user);
         $this->smarty->display("Template/category/showOneCategory.tpl");
     }
 

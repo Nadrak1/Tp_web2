@@ -19,5 +19,8 @@
         <h3 class="alert alert-danger">{$error}</h3>
     {/if}
 </div> 
-
+<br>
+<div class="container">
+    <a href="gameHome"><h5>No deseo loguearme o registrarme<h5></a>
+</div>
 {include file="template/footer.tpl"}

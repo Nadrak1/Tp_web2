@@ -14,21 +14,17 @@
                 <li class="nav-item">
                 <a class="nav-link blanco" href="categoryHome">Categories</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle blanco" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Views
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
-        <span class="navbar-text">
-            <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
-        </span>
+        {if $user->rol == "usuario" || $user->rol == "admin"}
+            <span class="navbar-text">
+                <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
+            </span>
+        {else}
+            <span class="navbar-text">
+                <a href="login"><button type="button" class="btn btn-primary ">Loguearte</button></a>
+            </span>
+        {/if}
     </div>
 </nav>
 <div class="container-fluid">
@@ -45,10 +41,9 @@
             <label for="validationCustom04" class="form-label">Categoria</label>
             <select class="form-select" name="id_category_fk" id="id_category_fk" required>
             <option selected disabled value="">Elegi...</option>
-            <option value="1">Shooter</option>
-            <option value="2">Sport</option>
-            <option value="3">Horror</option>
-            <option value="4">Multiplayer online battle arena</option>
+            {foreach from=$genre item=$categoria}
+                <option value="{$categoria->genre}">{$categoria->genre}</option>
+            {/foreach}
             </select>
         </div>
         <div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2022 at 07:51 PM
+-- Generation Time: Oct 20, 2022 at 02:52 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -43,7 +43,7 @@ INSERT INTO `category` (`id`, `genre`, `gameplay`) VALUES
 (3, 'Horror', 'Multi Plataform'),
 (4, 'Multiplayer online battle arena', 'Multi Plataform'),
 (6, 'Sport', 'PC'),
-(7, 'Sport', 'XBOX');
+(7, 'Sport', 'PS4');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,10 @@ INSERT INTO `users` (`id`, `rol`, `email`, `password`) VALUES
 (6, 'admin', 'iaraminos03@gmail.com', '$2y$10$8dCgGUy76zmnbVH3kFzLe.79qzKO6acvuEpZNTwuHaM9Q61ISi3r6'),
 (7, 'usuario', 'juanmanuelurd@hotmail.com', '$2y$10$a1KLxxkJrMxwz4G2tGBxNO8mGI58PqmQnxf0/jfXx6uXiq5Lge1sm'),
 (8, 'usuario', 'nacho10@gmail.com', '$2y$10$TfpVG6LxiOWFDDaR8YproefsLk5PmQaIGBfNlxB9dvL1aTS.mFSm6'),
-(9, '', 'tomascarachioli@gmail.com', '$2y$10$J6a4WXnLL1Ia3DGckN9LQud33PbnGvc.pwhKzZf.6YnllT7wK8yBG');
+(11, 'usuario', 'tomascarachioli@gmail.com', '$2y$10$sWWS5kWr2kSV.ZU0p1yz/eo8w3JHNuJpcWUdn09X8KfagD.c0OEta'),
+(12, 'usuario', 'das@s', '$2y$10$tEDP04TByt4wgv4DnukyieekG7Z/0ACy1RXytFBjd0yF6IBsuwtma'),
+(13, 'usuario', 'nose@nose', '$2y$10$brTSxfB9pXNGDtZrWvk6uudtqq5QfpqMTeBxup5aj6QAeYVOg7fje'),
+(14, 'usuario', 'das@das', '$2y$10$TdS2AW68kmhuNUtoAyeW2OY5NUqQdUbeSMihq206EwyKsV1h5wose');
 
 -- --------------------------------------------------------
 
@@ -79,22 +82,23 @@ CREATE TABLE `videogame` (
   `id` int(11) NOT NULL,
   `name` varchar(300) NOT NULL,
   `price` float NOT NULL,
-  `id_category_fk` int(11) NOT NULL
+  `id_category_fk` int(11) NOT NULL,
+  `imagen` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `videogame`
 --
 
-INSERT INTO `videogame` (`id`, `name`, `price`, `id_category_fk`) VALUES
-(1, 'Far Cry 3', 300, 1),
-(2, 'FIFA 22', 7855, 2),
-(4, 'NBA 2K23', 7000, 2),
-(7, 'Five Nights at Freddy\'s', 990.56, 3),
-(9, 'League of Legends', 0, 4),
-(11, 'Brawl Stars', 0, 4),
-(14, 'Counter Strike', 0, 1),
-(15, 'TUDODICO', 1212, 2);
+INSERT INTO `videogame` (`id`, `name`, `price`, `id_category_fk`, `imagen`) VALUES
+(1, '	Far Cry 3', 300, 1, 'imgs/634de1cebf44a.jpg'),
+(2, 'FIFA 22', 7855, 2, 'imgs/634de1febebf8.jpg'),
+(4, 'NBA 2K23', 7000, 2, 'imgs/634de31e6a1e9.jpg'),
+(7, 'Five Nights at Freddy\'s', 990.56, 3, NULL),
+(9, 'League of Legends', 0, 4, NULL),
+(11, 'Brawl Stars', 0, 4, NULL),
+(17, 'Call Of Duty (Black ops)', 789, 1, 'imgs/634ec2ce8c3c3.jpg'),
+(18, 'ssd', 22, 1, 'imgs/634ec342dbb50.jpg');
 
 --
 -- Indexes for dumped tables
@@ -133,13 +137,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `videogame`
 --
 ALTER TABLE `videogame`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables

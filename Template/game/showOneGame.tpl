@@ -13,21 +13,17 @@
                 <li class="nav-item">
                 <a class="nav-link blanco" href="categoryHome">Categories</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle blanco" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Views
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
-        <span class="navbar-text">
-            <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
-        </span>
+        {if $user->rol == "usuario" || $user->rol == "admin"}
+            <span class="navbar-text">
+                <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
+            </span>
+        {else}
+            <span class="navbar-text">
+                <a href="login"><button type="button" class="btn btn-primary ">Loguearte</button></a>
+            </span>
+        {/if}
     </div>
 </nav>
 <h1>Nombre: {$game->name}</h1>

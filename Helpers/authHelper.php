@@ -8,30 +8,40 @@ class authHelper{
     function checkLoggedIn(){
         session_start();
         if(!isset($_SESSION["email"])){
-            header("Location:".BASE_URL."login");
+            
+        
         }else{
-            $logged = isset($_SESSION['email']);
+            session_abort();
+            $this->loggedUser();
         }
-        session_abort();
-        return $logged;
+        
     }
 
     public function loggedUser(){
-        if ($this->checkLoggedIn()){
+        
+        //if ($this->checkLoggedIn()){
             $user = $this->createUser();
             return $user;
-        }else{
-            return null;
-        }
+        //}else{
+          //  return null;
+        //}
     }
 
     private function createUser(){
-        session_start();
+        
         $user = new stdClass();
-        $user->email = $_SESSION['email'];
-        $user->rol = $_SESSION['rol'];
-        session_abort();
-        return $user;
+        if(isset($_SESSION['email'])){
+            $user->email = $_SESSION['email'];
+            $user->rol = $_SESSION['rol'];
+            return $user;
+            
+        }else{
+            $_SESSION['rol'] = "nulo";
+            $user->rol = $_SESSION['rol'];
+            return $user;
+            
+        }
+
     }
 
 

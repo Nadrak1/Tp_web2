@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-18 03:50:37
+/* Smarty version 4.2.1, created on 2022-10-20 18:28:35
   from 'C:\xampp\htdocs\WEB2_Tp\Template\game\showGame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634e066d1d3ee5_57253314',
+  'unifunc' => 'content_63517733475413_98592797',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd37d8e63035f51f933089f369e89d62e32556a67' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\game\\showGame.tpl',
-      1 => 1666057836,
+      1 => 1666278655,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634e066d1d3ee5_57253314 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63517733475413_98592797 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -40,21 +40,17 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
                 <li class="nav-item">
                 <a class="nav-link blanco" href="categoryHome">Categories</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle blanco" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Views
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
-        <span class="navbar-text">
-            <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
-        </span>
+        <?php if ($_smarty_tpl->tpl_vars['user']->value->rol == "usuario" || $_smarty_tpl->tpl_vars['user']->value->rol == "admin") {?>
+            <span class="navbar-text">
+                <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
+            </span>
+        <?php } else { ?>
+            <span class="navbar-text">
+                <a href="login"><button type="button" class="btn btn-primary ">Loguearte</button></a>
+            </span>
+        <?php }?>
     </div>
 </nav>
 <div class="container-fluid">
@@ -71,10 +67,18 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
             <label for="validationCustom04" class="form-label">Categoria</label>
             <select class="form-select" name="id_category_fk" id="id_category_fk" required>
             <option selected disabled value="">Elegi...</option>
-            <option value="1">Shooter</option>
-            <option value="2">Sport</option>
-            <option value="3">Horror</option>
-            <option value="4">Multiplayer online battle arena</option>
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['genre']->value, 'categoria');
+$_smarty_tpl->tpl_vars['categoria']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
+$_smarty_tpl->tpl_vars['categoria']->do_else = false;
+?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->genre;?>
+"><?php echo $_smarty_tpl->tpl_vars['categoria']->value->genre;?>
+</option>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </select>
         </div>
         <div>

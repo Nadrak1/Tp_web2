@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-18 02:10:14
+/* Smarty version 4.2.1, created on 2022-10-20 16:20:07
   from 'C:\xampp\htdocs\WEB2_Tp\Template\game\showOneGame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634deee6acbea1_77096347',
+  'unifunc' => 'content_635159176aef93_56925648',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da153807429a3dd972935ffe3c0c111db98a28dc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\game\\showOneGame.tpl',
-      1 => 1666051813,
+      1 => 1666274104,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634deee6acbea1_77096347 (Smarty_Internal_Template $_smarty_tpl) {
+function content_635159176aef93_56925648 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <nav class="navbar navbar-expand-lg bg-dark">
@@ -39,21 +39,17 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
                 <li class="nav-item">
                 <a class="nav-link blanco" href="categoryHome">Categories</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle blanco" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Views
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                        <li><a class="dropdown-item" href="">?</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
-        <span class="navbar-text">
-            <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
-        </span>
+        <?php if ($_smarty_tpl->tpl_vars['user']->value->rol == "usuario" || $_smarty_tpl->tpl_vars['user']->value->rol == "admin") {?>
+            <span class="navbar-text">
+                <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
+            </span>
+        <?php } else { ?>
+            <span class="navbar-text">
+                <a href="login"><button type="button" class="btn btn-primary ">Loguearte</button></a>
+            </span>
+        <?php }?>
     </div>
 </nav>
 <h1>Nombre: <?php echo $_smarty_tpl->tpl_vars['game']->value->name;?>

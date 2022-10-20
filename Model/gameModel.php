@@ -49,9 +49,9 @@ function __construct(){
         return $game ;
     }
 
-    function gameSearch($palabra,$numero){
-        $sentencia = $this->db->prepare( "SELECT a.*, b.genre FROM videogame a INNER JOIN category b ON a.id_category_fk = b.id WHERE name LIKE ? OR price LIKE ? "); 
-        $sentencia->execute(["%${palabra}%" , "%${numero}%"]);  
+    function gameSearch($palabra,$numero,$categoria){
+        $sentencia = $this->db->prepare( "SELECT a.*, b.genre FROM videogame a INNER JOIN category b ON a.id_category_fk = b.id WHERE name LIKE ? OR price LIKE ? OR genre LIKE ? "); 
+        $sentencia->execute(["%${palabra}%" , "%${numero}%" , "%${categoria}"]);  
         return $sentencia->fetchAll(PDO::FETCH_OBJ);  
     }
     

@@ -6,34 +6,42 @@ require_once "Helpers/authHelper.php";
 class gameController{
 
     private $model;
+    private $modelC;
     private $view;
     private $helper;
 
     function __construct(){
         $this->model = new gameModel();
+        $this->modelC = new categoryModel();
         $this->view = new gameView();
         $this->helper = new authHelper();
 
     }
     
     function showHome(){
+        
         $this->helper->checkLoggedIn();
+        
         $user = $this->helper->loggedUser();
+        $genre = $this->modelC->getCategorys();
         $game = $this->model->getGame();
-        $this->view->showGame($game,$user);
+        $this->view->showGame($game,$user,$genre);
     }
 
     function createGame(){
-        $this->helper->checkLoggedIn();
-        $name=$_POST["name"];
-        $price=$_POST["price"];
-        $id_category_fk=$_POST["id_category_fk"];
-        if( $_FILES["img"]["type"] == "image/jpg" ||
-        $_FILES["img"]["type"] == "image/jpeg" ||
-        $_FILES["img"]["type"] == "image/png"){
-            $this->model->insertGame($name,$price,$id_category_fk,$_FILES["img"]["tmp_name"]);
-        }else{
-            $this->model->insertGame($name,$price,$id_category_fk);
+        //$this->helper->checkLoggedIn();
+        //if(isset...){}
+        if(!empty($_POST["name"]) && !empty($_POST["price"]) && !empty($_POST['id_category_fk'])  ){
+            $name=$_POST["name"];
+            $price=$_POST["price"];
+            $id_category_fk=$_POST["id_category_fk"];
+            if( $_FILES["img"]["type"] == "image/jpg" ||
+            $_FILES["img"]["type"] == "image/jpeg" ||
+            $_FILES["img"]["type"] == "image/png"){
+                $this->model->insertGame($name,$price,$id_category_fk,$_FILES["img"]["tmp_name"]);
+            }else{
+                $this->model->insertGame($name,$price,$id_category_fk);
+            }
         }
         $this->view->showHomeLocation();
     }
@@ -46,10 +54,10 @@ class gameController{
     }
     
     function getGame($id){
-        $this->helper->checkLoggedIn();
-
+       // $this->helper->checkLoggedIn();
+        $user = $this->helper->loggedUser();
         $game = $this->model->getGames($id);
-        $this->view->viewGame($game);
+        $this->view->viewGame($game,$user);
     }
     
     function viewEditGame($id){
@@ -60,17 +68,20 @@ class gameController{
 
     function editGame(){
         $this->helper->checkLoggedIn();
-        $name=$_POST["name"];
-        $price=$_POST["price"];
-        $id_category_fk=$_POST["id_category_fk"];
-        $id=$_POST["id"];
+        if(!empty($_POST["name"]) && !empty($_POST["price"]) && !empty($_POST['id_category_fk'])   ){
 
-        if( $_FILES["img"]["type"] == "image/jpg" ||
-        $_FILES["img"]["type"] == "image/jpeg" ||
-        $_FILES["img"]["type"] == "image/png"){
-            $this->model->updategameFromDB($name,$price,$id_category_fk,$_FILES["img"]["tmp_name"],$id);
-        }else{
-            $this->model->updategameFromDB($name,$price,$id_category_fk,$imagen= null,$id);
+            $name=$_POST["name"];
+            $price=$_POST["price"];
+            $id_category_fk=$_POST["id_category_fk"];
+            $id=$_POST["id"];
+
+            if( $_FILES["img"]["type"] == "image/jpg" ||
+            $_FILES["img"]["type"] == "image/jpeg" ||
+            $_FILES["img"]["type"] == "image/png"){
+                $this->model->updategameFromDB($name,$price,$id_category_fk,$_FILES["img"]["tmp_name"],$id);
+            }else{
+                $this->model->updategameFromDB($name,$price,$id_category_fk,$imagen= null,$id);
+            }
         }
         $this->view->showHomeLocation();
     }
@@ -79,8 +90,9 @@ class gameController{
         if(!empty($_POST["busqueda"])){
             $palabra = $_POST["busqueda"];
             $numero = $_POST["busqueda"];
+            $categoria = $_POST["busqueda"];
             $user = $this->helper->loggedUser();
-            $search = $this->model->gameSearch($palabra,$numero);
+            $search = $this->model->gameSearch($palabra,$numero,$categoria);
             $this->view->searchGame($user,$search);
         }else{
             $this->view->showHomeLocation();
