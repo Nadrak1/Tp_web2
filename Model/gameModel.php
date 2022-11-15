@@ -43,7 +43,7 @@ function __construct(){
 
 
     function getGame($id){
-        $sentencia = $this->db->prepare( "select * from videogame WHERE id=?"); 
+        $sentencia = $this->db->prepare("SELECT a.*, b.genre,b.gameplay FROM videogame a INNER JOIN category b ON a.id_category_fk = b.id WHERE a.id=?"); 
         $sentencia->execute(array($id));  
         $game = $sentencia->fetch(PDO::FETCH_OBJ);   
         return $game ;

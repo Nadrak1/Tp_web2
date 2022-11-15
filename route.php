@@ -52,7 +52,6 @@ require_once "./Controller/loginController.php";
         //   ------------------------------VER GAME Y CATEGORY------------------------------------------------
         case 'viewGame':
                 $gameController->getGame($params[1]);
-                $categoryController->getCategory($params[1]);
                 break;
         case 'viewCategory':
             $categoryController->getCategory($params[1]);            

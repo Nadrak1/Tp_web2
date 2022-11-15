@@ -28,8 +28,11 @@
 </nav>
 <h1>Nombre: {$game->name}</h1>
 <h1>Precio: {$game->price}</h1>
-<h1>Nro id:{$game->id}</h1>
-<h4><img class="imagen" src="{$game->imagen}"></h4>
+<h1>Genero: {$game->genre}</h1>
+<h1>Plataforma: {$game->gameplay}</h1>
+{if $game->imagen !=null}
+    <h4><img class="imagen" src="{$game->imagen}"></h4>
+{/if}
 <a href="gameHome"><button type="button" class="btn btn-primary ">Volver</button></a>
 
 {include file="Template/footer.tpl"}

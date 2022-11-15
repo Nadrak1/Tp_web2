@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-20 16:20:07
+/* Smarty version 4.2.1, created on 2022-11-15 15:43:46
   from 'C:\xampp\htdocs\WEB2_Tp\Template\game\showOneGame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_635159176aef93_56925648',
+  'unifunc' => 'content_6373a5a28ca063_78191193',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da153807429a3dd972935ffe3c0c111db98a28dc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\game\\showOneGame.tpl',
-      1 => 1666274104,
+      1 => 1668523421,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_635159176aef93_56925648 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6373a5a28ca063_78191193 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <nav class="navbar navbar-expand-lg bg-dark">
@@ -56,10 +56,14 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
 </h1>
 <h1>Precio: <?php echo $_smarty_tpl->tpl_vars['game']->value->price;?>
 </h1>
-<h1>Nro id:<?php echo $_smarty_tpl->tpl_vars['game']->value->id;?>
+<h1>Genero: <?php echo $_smarty_tpl->tpl_vars['game']->value->genre;?>
 </h1>
-<h4><img class="imagen" src="<?php echo $_smarty_tpl->tpl_vars['game']->value->imagen;?>
+<h1>Plataforma: <?php echo $_smarty_tpl->tpl_vars['game']->value->gameplay;?>
+</h1>
+<?php if ($_smarty_tpl->tpl_vars['game']->value->imagen != null) {?>
+    <h4><img class="imagen" src="<?php echo $_smarty_tpl->tpl_vars['game']->value->imagen;?>
 "></h4>
+<?php }?>
 <a href="gameHome"><button type="button" class="btn btn-primary ">Volver</button></a>
 
 <?php $_smarty_tpl->_subTemplateRender("file:Template/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
