@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-20 18:28:35
+/* Smarty version 4.2.1, created on 2022-11-06 00:41:19
   from 'C:\xampp\htdocs\WEB2_Tp\Template\game\showGame.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63517733475413_98592797',
+  'unifunc' => 'content_6366f49f569040_15841579',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd37d8e63035f51f933089f369e89d62e32556a67' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\game\\showGame.tpl',
-      1 => 1666278655,
+      1 => 1667691677,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_63517733475413_98592797 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6366f49f569040_15841579 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -53,43 +53,45 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
         <?php }?>
     </div>
 </nav>
-<div class="container-fluid">
-    <form class="row g-3" action="createGame" method="post" enctype="multipart/form-data">
-        <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">Juego</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Juego" required>
-        </div>
-        <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">Precio</label>
-            <input type="number" class="form-control" name="price" id="price" placeholder="$" required>
-        </div>
-        <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Categoria</label>
-            <select class="form-select" name="id_category_fk" id="id_category_fk" required>
-            <option selected disabled value="">Elegi...</option>
-            <?php
+<?php if ($_smarty_tpl->tpl_vars['user']->value->rol == "usuario" || $_smarty_tpl->tpl_vars['user']->value->rol == "admin") {?>
+    <div class="container-fluid">
+        <form class="row g-3" action="createGame" method="post" enctype="multipart/form-data">
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Juego</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Juego" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Precio</label>
+                <input type="number" class="form-control" name="price" id="price" placeholder="$" required>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom04" class="form-label">Categoria</label>
+                <select class="form-select" name="id_category_fk" id="id_category_fk" required>
+                <option selected disabled value="">Elegi...</option>
+                <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['genre']->value, 'categoria');
 $_smarty_tpl->tpl_vars['categoria']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
 $_smarty_tpl->tpl_vars['categoria']->do_else = false;
 ?>
-                <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->genre;?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id;?>
 "><?php echo $_smarty_tpl->tpl_vars['categoria']->value->genre;?>
 </option>
-            <?php
+                <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-            </select>
-        </div>
-        <div>
-            <label>Insertar una imagen(OPCIONAL)</label>
-            <input type="file" name="img" id="imageToUpload">
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
-    </form>
-</div>
+                </select>
+            </div>
+            <div>
+                <label>Insertar una imagen(OPCIONAL)</label>
+                <input type="file" name="img" id="imageToUpload">
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+        </form>
+    </div>
+<?php }?>
 <br>
 <div class="container-fluid contenedorsearch">
     <form action="searchGame" method="post">

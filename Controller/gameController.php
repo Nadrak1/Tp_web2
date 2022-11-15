@@ -24,13 +24,14 @@ class gameController{
         
         $user = $this->helper->loggedUser();
         $genre = $this->modelC->getCategorys();
-        $game = $this->model->getGame();
+        $game = $this->model->getGames();
         $this->view->showGame($game,$user,$genre);
     }
 
     function createGame(){
-        //$this->helper->checkLoggedIn();
+        $this->helper->checkLoggedIn();
         //if(isset...){}
+        
         if(!empty($_POST["name"]) && !empty($_POST["price"]) && !empty($_POST['id_category_fk'])  ){
             $name=$_POST["name"];
             $price=$_POST["price"];
@@ -48,16 +49,19 @@ class gameController{
 
     function deleteGame($id){
         $this->helper->checkLoggedIn();
-
-        $this->model->deleteGameFromDB($id);
-        $this->view->showHomeLocation();
+        if(!empty($id)){
+            $this->model->deleteGameFromDB($id);
+            $this->view->showHomeLocation();
+        }
     }
     
     function getGame($id){
-       // $this->helper->checkLoggedIn();
-        $user = $this->helper->loggedUser();
-        $game = $this->model->getGames($id);
-        $this->view->viewGame($game,$user);
+        $this->helper->checkLoggedIn();
+        if(!empty($id)){
+            $user = $this->helper->loggedUser();
+            $game = $this->model->getGame($id);
+            $this->view->viewGame($game,$user);
+        }
     }
     
     function viewEditGame($id){
@@ -74,7 +78,7 @@ class gameController{
             $price=$_POST["price"];
             $id_category_fk=$_POST["id_category_fk"];
             $id=$_POST["id"];
-
+    
             if( $_FILES["img"]["type"] == "image/jpg" ||
             $_FILES["img"]["type"] == "image/jpeg" ||
             $_FILES["img"]["type"] == "image/png"){

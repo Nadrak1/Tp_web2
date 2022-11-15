@@ -27,33 +27,34 @@
         {/if}
     </div>
 </nav>
-
-<form class="row g-3" action="createCategory" method="post">
-    <div class="col-md-3">  
-        <label for="validationCustom04" class="form-label">Genero</label>
-        <input type="text" class="form-control"name="genre" id="genre" placeholder="Ingresa un genero" required>
-    </div>
-    <div class="col-md-3">
-        <label for="validationCustom04" class="form-label">Plataforma de Jugabilidad</label>
-        <select class="form-select" name="gameplay" id="gameplay" required>
-        <option selected disabled value="">Elegi...</option>
-        <option value="Multi Plataform">Multi Plataform</option>
-        <option value="PC">PC</option>
-        <option value="XBOX">XBOX</option>
-        <option value="PS4">PS4</option>
-        </select>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
-    </div>
-</form>
-<br>
-<div class="container-fluid contenedorsearch">
-    <form action="searchCategory" method="post">
-        <input class="form-label" type="text" placeholder="Search" id="busqueda" name="busqueda" aria-label="Search" >
-        <button class="btn btn-outline-success" type="submit">Search</button>
+{if  $user->rol == "usuario" ||  $user->rol == "admin" }
+    <form class="row g-3" action="createCategory" method="post">
+        <div class="col-md-3">  
+            <label for="validationCustom04" class="form-label">Genero</label>
+            <input type="text" class="form-control"name="genre" id="genre" placeholder="Ingresa un genero" required>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">Plataforma de Jugabilidad</label>
+            <select class="form-select" name="gameplay" id="gameplay" required>
+            <option selected disabled value="">Elegi...</option>
+            <option value="Multi Plataform">Multi Plataform</option>
+            <option value="PC">PC</option>
+            <option value="XBOX">XBOX</option>
+            <option value="PS4">PS4</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
     </form>
-</div>
+    <br>
+    <div class="container-fluid contenedorsearch">
+        <form action="searchCategory" method="post">
+            <input class="form-label" type="text" placeholder="Search" id="busqueda" name="busqueda" aria-label="Search" >
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+{/if}
 <br>
     <table class="table table-dark table-striped tablaCategory" id="tblDatos">
                 <thead>

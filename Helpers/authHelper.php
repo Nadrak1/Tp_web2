@@ -14,7 +14,7 @@ class authHelper{
             session_abort();
             $this->loggedUser();
         }
-        
+        session_abort();
     }
 
     public function loggedUser(){

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-20 16:59:06
+/* Smarty version 4.2.1, created on 2022-11-06 00:42:19
   from 'C:\xampp\htdocs\WEB2_Tp\Template\category\showCategory.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6351623a73b8d0_57755547',
+  'unifunc' => 'content_6366f4db1be7f8_00261631',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0fb2078131bfc9029df5a7d39b2caaed426efc6c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\category\\showCategory.tpl',
-      1 => 1666277944,
+      1 => 1667691736,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6351623a73b8d0_57755547 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6366f4db1be7f8_00261631 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -53,33 +53,34 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
         <?php }?>
     </div>
 </nav>
-
-<form class="row g-3" action="createCategory" method="post">
-    <div class="col-md-3">  
-        <label for="validationCustom04" class="form-label">Genero</label>
-        <input type="text" class="form-control"name="genre" id="genre" placeholder="Ingresa un genero" required>
-    </div>
-    <div class="col-md-3">
-        <label for="validationCustom04" class="form-label">Plataforma de Jugabilidad</label>
-        <select class="form-select" name="gameplay" id="gameplay" required>
-        <option selected disabled value="">Elegi...</option>
-        <option value="Multi Plataform">Multi Plataform</option>
-        <option value="PC">PC</option>
-        <option value="XBOX">XBOX</option>
-        <option value="PS4">PS4</option>
-        </select>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
-    </div>
-</form>
-<br>
-<div class="container-fluid contenedorsearch">
-    <form action="searchCategory" method="post">
-        <input class="form-label" type="text" placeholder="Search" id="busqueda" name="busqueda" aria-label="Search" >
-        <button class="btn btn-outline-success" type="submit">Search</button>
+<?php if ($_smarty_tpl->tpl_vars['user']->value->rol == "usuario" || $_smarty_tpl->tpl_vars['user']->value->rol == "admin") {?>
+    <form class="row g-3" action="createCategory" method="post">
+        <div class="col-md-3">  
+            <label for="validationCustom04" class="form-label">Genero</label>
+            <input type="text" class="form-control"name="genre" id="genre" placeholder="Ingresa un genero" required>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">Plataforma de Jugabilidad</label>
+            <select class="form-select" name="gameplay" id="gameplay" required>
+            <option selected disabled value="">Elegi...</option>
+            <option value="Multi Plataform">Multi Plataform</option>
+            <option value="PC">PC</option>
+            <option value="XBOX">XBOX</option>
+            <option value="PS4">PS4</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
     </form>
-</div>
+    <br>
+    <div class="container-fluid contenedorsearch">
+        <form action="searchCategory" method="post">
+            <input class="form-label" type="text" placeholder="Search" id="busqueda" name="busqueda" aria-label="Search" >
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+<?php }?>
 <br>
     <table class="table table-dark table-striped tablaCategory" id="tblDatos">
                 <thead>

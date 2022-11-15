@@ -27,34 +27,36 @@
         {/if}
     </div>
 </nav>
-<div class="container-fluid">
-    <form class="row g-3" action="createGame" method="post" enctype="multipart/form-data">
-        <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">Juego</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Juego" required>
-        </div>
-        <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">Precio</label>
-            <input type="number" class="form-control" name="price" id="price" placeholder="$" required>
-        </div>
-        <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Categoria</label>
-            <select class="form-select" name="id_category_fk" id="id_category_fk" required>
-            <option selected disabled value="">Elegi...</option>
-            {foreach from=$genre item=$categoria}
-                <option value="{$categoria->genre}">{$categoria->genre}</option>
-            {/foreach}
-            </select>
-        </div>
-        <div>
-            <label>Insertar una imagen(OPCIONAL)</label>
-            <input type="file" name="img" id="imageToUpload">
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
-    </form>
-</div>
+{if  $user->rol == "usuario" ||  $user->rol == "admin" }
+    <div class="container-fluid">
+        <form class="row g-3" action="createGame" method="post" enctype="multipart/form-data">
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Juego</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Juego" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Precio</label>
+                <input type="number" class="form-control" name="price" id="price" placeholder="$" required>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom04" class="form-label">Categoria</label>
+                <select class="form-select" name="id_category_fk" id="id_category_fk" required>
+                <option selected disabled value="">Elegi...</option>
+                {foreach from=$genre item=categoria}
+                    <option value="{$categoria->id}">{$categoria->genre}</option>
+                {/foreach}
+                </select>
+            </div>
+            <div>
+                <label>Insertar una imagen(OPCIONAL)</label>
+                <input type="file" name="img" id="imageToUpload">
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+        </form>
+    </div>
+{/if}
 <br>
 <div class="container-fluid contenedorsearch">
     <form action="searchGame" method="post">
