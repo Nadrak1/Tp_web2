@@ -8,8 +8,7 @@ class authHelper{
     function checkLoggedIn(){
         session_start();
         if(!isset($_SESSION["email"])){
-            
-        
+            header("Location:".BASE_URL."gameHome");
         }else{
             session_abort();
             $this->loggedUser();
@@ -18,13 +17,15 @@ class authHelper{
     }
 
     public function loggedUser(){
-        
+        session_start();
         //if ($this->checkLoggedIn()){
             $user = $this->createUser();
+            session_abort();
             return $user;
         //}else{
           //  return null;
         //}
+        
     }
 
     private function createUser(){

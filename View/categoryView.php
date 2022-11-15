@@ -24,8 +24,10 @@ class categoryView{
         $this->smarty->display("Template/category/showOneCategory.tpl");
     }
 
-    function viewEditCategory($id){      
+    function viewEditCategory($id,$category,$user){      
         $this->smarty->assign('id',$id);
+        $this->smarty->assign("category",$category);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('./Template/category/editCategory.tpl');
     }
 

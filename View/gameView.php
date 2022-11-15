@@ -25,8 +25,10 @@ class gameView{
         $this->smarty->display('./Template/game/showOneGame.tpl');
     }
 
-    function editGame($id){
+    function editGame($id,$game,$user){
         $this->smarty->assign('id',$id);
+        $this->smarty->assign('game',$game);
+        $this->smarty->assign('user',$user);
         $this->smarty->display('./Template/game/editGame.tpl');
     }
 

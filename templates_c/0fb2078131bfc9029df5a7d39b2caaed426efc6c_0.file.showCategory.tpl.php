@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-11-06 00:42:19
+/* Smarty version 4.2.1, created on 2022-11-15 15:45:51
   from 'C:\xampp\htdocs\WEB2_Tp\Template\category\showCategory.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6366f4db1be7f8_00261631',
+  'unifunc' => 'content_6373a61fc3a511_17135283',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0fb2078131bfc9029df5a7d39b2caaed426efc6c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\WEB2_Tp\\Template\\category\\showCategory.tpl',
-      1 => 1667691736,
+      1 => 1668523550,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Template/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6366f4db1be7f8_00261631 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6373a61fc3a511_17135283 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -73,6 +73,7 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
             <button class="btn btn-primary" type="submit">Submit form</button>
         </div>
     </form>
+<?php }?>
     <br>
     <div class="container-fluid contenedorsearch">
         <form action="searchCategory" method="post">
@@ -80,7 +81,6 @@ $_smarty_tpl->_subTemplateRender("file:Template/header.tpl", $_smarty_tpl->cache
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
-<?php }?>
 <br>
     <table class="table table-dark table-striped tablaCategory" id="tblDatos">
                 <thead>

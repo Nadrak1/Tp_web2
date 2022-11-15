@@ -47,6 +47,7 @@
             <button class="btn btn-primary" type="submit">Submit form</button>
         </div>
     </form>
+{/if}
     <br>
     <div class="container-fluid contenedorsearch">
         <form action="searchCategory" method="post">
@@ -54,7 +55,6 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
-{/if}
 <br>
     <table class="table table-dark table-striped tablaCategory" id="tblDatos">
                 <thead>

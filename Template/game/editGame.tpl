@@ -1,7 +1,41 @@
 {include file="Template/header.tpl"}
 
- <!-- <div class="modal-container">
-    <div class="modal"> -->
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="gameHome"><ion-icon name="game-controller-outline"></ion-icon></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link blanco" aria-current="page" href="gameHome">Games</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link blanco" href="categoryHome">Categories</a>
+                </li>
+            </ul>
+        </div>
+        {if $user->rol == "usuario" || $user->rol == "admin"}
+            <span class="navbar-text">
+                <a href="logout"><button type="button" class="btn btn-primary ">Cerrar Sesion</button></a>
+            </span>
+        {else}
+            <span class="navbar-text">
+                <a href="login"><button type="button" class="btn btn-primary ">Loguearte</button></a>
+            </span>
+        {/if}
+    </div>
+</nav>
+
+    <h1>Nombre: {$game->name}</h1>
+    <h1>Precio: {$game->price}</h1>
+    <h1>Genero: {$game->genre}</h1>
+    <h1>Plataforma: {$game->gameplay}</h1>
+    {if $game->imagen !=null}
+        <h4><img class="imagen" src="{$game->imagen}"></h4>
+    {/if}
+
         <form class="row g-3" action="editGame" method="post" enctype="multipart/form-data">
             <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">Juego</label>
@@ -30,8 +64,6 @@
                 <a href="editGame"><button class="btn btn-primary" type="submit">Submit form</button></a>
             </div>
         </form>  
-  <!--  </div>
-</div> -->
 
 
     

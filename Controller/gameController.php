@@ -20,8 +20,6 @@ class gameController{
     
     function showHome(){
         
-        $this->helper->checkLoggedIn();
-        
         $user = $this->helper->loggedUser();
         $genre = $this->modelC->getCategorys();
         $game = $this->model->getGames();
@@ -56,7 +54,7 @@ class gameController{
     }
     
     function getGame($id){
-        $this->helper->checkLoggedIn();
+        //$this->helper->checkLoggedIn();
         if(!empty($id)){
             $user = $this->helper->loggedUser();
             $game = $this->model->getGame($id);
@@ -66,13 +64,16 @@ class gameController{
     
     function viewEditGame($id){
         $this->helper->checkLoggedIn();
-
-        $this->view->editGame($id);
+        if(!empty($id)){
+            $user = $this->helper->loggedUser();
+            $game = $this->model->getGame($id);
+            $this->view->editGame($id,$game,$user);
+        }
     }
 
     function editGame(){
         $this->helper->checkLoggedIn();
-        if(!empty($_POST["name"]) && !empty($_POST["price"]) && !empty($_POST['id_category_fk'])   ){
+        if(!empty($_POST["name"]) && !empty($_POST["price"]) && !empty($_POST['id_category_fk'])){
 
             $name=$_POST["name"];
             $price=$_POST["price"];
